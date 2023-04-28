@@ -1,0 +1,39 @@
+public class Blob {
+    private int sunY=0;
+     private  int sumX=0;
+    private int mass=0;
+    public Blob(){
+}
+    public void add(int x, int y){
+        sumX+=x;
+        sunY+=y;
+        mass++;
+    }
+    public int mass(){
+    return mass;
+    }
+    public double distinceTo(Blob blob){
+     double x= blob.sumX/ blob.mass;
+     double y= blob.sunY/ blob.mass;
+     double cx=sumX/mass;
+     double cy=sunY/mass;
+     double ans=Math.sqrt(Math.pow(x-cx,2)+Math.pow(y-cy,2));
+    return ans;
+    }
+    public String ToString(){
+      String ans=String.format("%2d(%8.4f,%8.4f)",mass,sumX/mass,sunY/mass);
+        return ans;
+    }
+    public static void main(String[] args){
+     Blob blob1=new Blob();
+        blob1.add(4,3);
+        blob1.add(3,3);
+        blob1.add(4,6);
+     Blob blob2=new Blob();
+        blob2.add(8,4);
+        blob2.add(0,3);
+        blob2.add(23,2);
+        System.out.println(blob1.distinceTo(blob2));
+        System.out.println(blob1);
+    }
+}
